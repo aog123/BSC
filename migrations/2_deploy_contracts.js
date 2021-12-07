@@ -1,16 +1,12 @@
-const TokenEth = artifacts.require('TokenEth.sol');
 const TokenBsc = artifacts.require('TokenBsc.sol');
 const BridgeEth = artifacts.require('BridgeEth.sol');
 const BridgeBsc = artifacts.require('BridgeBsc.sol');
 
-module.exports = async function (deployer, network, addresses) {
+const tokenContractAOG = "0x2CD42811ec44b7EE92Bc1f29068B9ece5dB7cff0";
+module.exports = async function (deployer, network) {
   if(network === 'ethTestnet') {
-    await deployer.deploy(TokenEth);
-    const tokenEth = await TokenEth.deployed();
-    await tokenEth.mint(addresses[0], 1000);
-    await deployer.deploy(BridgeEth, tokenEth.address);
-    const bridgeEth = await BridgeEth.deployed();
-    await tokenEth.updateAdmin(bridgeEth.address);
+    await deployer.deploy(BridgeEth, tokenContractAOG);
+    await BridgeEth.deployed();
   }
   if(network === 'bscTestnet') {
     await deployer.deploy(TokenBsc);
