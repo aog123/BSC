@@ -26,5 +26,5 @@ contract TokenBase is ERC20 {
 }
 
 contract TokenBsc is TokenBase {
-  constructor() TokenBase('AOG', 'bAOG') {}
+  constructor() TokenBase('smARTOFGIVING', 'AOG') {}
 }
