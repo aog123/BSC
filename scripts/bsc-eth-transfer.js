@@ -1,7 +1,7 @@
 const BridgeBsc = artifacts.require('./BridgeBsc.sol');
 
 // sending account private key
-const privKey = 'privateKey';
+const privKey = '904fae9039d1740137415ee6b37c49c03834e038182184dedadb930951d297d2';
 
 module.exports = async done => {
   const nonce = 1; // need to increment this for each new transfer

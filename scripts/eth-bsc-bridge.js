@@ -6,7 +6,7 @@ const web3Eth = new Web3('wss://ropsten.infura.io/ws/v3/ffdd55345da6440fb4fff0ce
 const web3Bsc = new Web3('wss://bsc.getblock.io/testnet/?api_key=e606c9e1-05e1-4b85-b233-2f95c773a3bf');
 
 // sending account private key, this can be any account with balance for paying network fees on both network.
-const adminPrivKey = 'add private key here';
+const adminPrivKey = 'aed4a94cf3b969161160c947c32646e96e18a274a399d504abd3ae3ab45406ac';
 const { address: admin } = web3Eth.eth.accounts.wallet.add(adminPrivKey);
 const { address: newAdmin } = web3Bsc.eth.accounts.wallet.add(adminPrivKey);
 
