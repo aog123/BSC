@@ -7,16 +7,11 @@ interface IToken {
 }
 
 contract BridgeBase {
-  address public admin;
   IToken public token;
   mapping(address => mapping(uint => bool)) public processedNonces;
   mapping(address => uint) public tokenLocked;
 
   enum Step { Burn, Mint }
-  event TokenWithdrawn(
-    address destAddr, 
-    uint amount
-  );
   event Transfer(
     address from,
     address to,
@@ -28,7 +23,6 @@ contract BridgeBase {
   );
 
   constructor(address _token) {
-    admin = msg.sender;
     token = IToken(_token);
   }
 
@@ -49,13 +43,6 @@ contract BridgeBase {
     );
   }
 
-  function withdraw(uint amount, address payable destAddr) public {
-    require(msg.sender == admin, "only admin can withdraw funds"); 
-   
-    token.transfer(destAddr, amount);
-    emit TokenWithdrawn(destAddr, amount);
-  }
-
   function mint(
     address from, 
     address to, 
@@ -73,8 +60,8 @@ contract BridgeBase {
     require(processedNonces[from][nonce] == false, 'transfer already processed');
     require(tokenLocked[from] >= amount, 'insufficient token locked');
     processedNonces[from][nonce] = true;
-    tokenLocked[from] = tokenLocked[from] - amount;
     token.transfer(to, amount);
+    tokenLocked[from] = tokenLocked[from] - amount;
 
     emit Transfer(
       from,
