@@ -7,7 +7,7 @@ module.exports = async done => {
   const nonce = 1; // need to increment this for each new transfer
   const accounts = await web3.eth.getAccounts();
   const bridgeBsc = await BridgeBsc.deployed();
-  const amount = web3.utils.toWei('1000');
+  const amount = web3.utils.toWei(' ');
   const message = web3.utils.soliditySha3(
     {t: 'address', v: accounts[2]},
     {t: 'address', v: accounts[1]},
