@@ -60,22 +60,20 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    ethTestnet: {
+    ethMainnet: {
       provider: () => new HDWalletProvider(
         mnemonic, 
-        'wss://ropsten.infura.io/ws/v3/ffdd55345da6440fb4fff0ce84074f38',
-        0,
-        1
+        'wss://mainnet.infura.io/ws/v3/ffdd55345da6440fb4fff0ce84074f38'
       ),
-      network_id: 3, //ropsten
+      network_id: 1, //mainnet
       skipDryRun: true
     },
-    bscTestnet: {
+    bscMainnet: {
       provider: () => new HDWalletProvider(
         mnemonic, 
-        'https://data-seed-prebsc-1-s2.binance.org:8545/'
+        'https://bsc-dataseed.binance.org/'
       ),
-      network_id: 97,
+      network_id: 56,
       skipDryRun: true
     },
     // Useful for private networks
