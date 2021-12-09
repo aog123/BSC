@@ -1,5 +1,5 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = 'nation weapon that visual diet boat gap verify loan across scene motion';
+const mnemonic = '';
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -71,7 +71,7 @@ module.exports = {
     bscMainnet: {
       provider: () => new HDWalletProvider(
         mnemonic, 
-        'https://bsc-dataseed.binance.org/'
+        'https://bsc-dataseed4.binance.org/'
       ),
       network_id: 56,
       skipDryRun: true
